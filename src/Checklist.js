@@ -2,16 +2,79 @@ export {Checklist};
 
 class Checklist {
     #items = [];
+    #category;
 
-    constructor(description) {
-        this.addItem(description);
+    constructor(category) {
+        this.#category = category;
     }
 
     get items() {
         return this.#items;
     }
 
-    addItem(description) {
-        this.#items.push({description: description, completed: false});
+    get category() {
+        return this.#category;
     }
+
+    set category(value) {
+        this.#category = value;
+    }
+
+    addItem(description, urgencyLevel, dateToComplete) {
+        const newItem = {
+            id: crypto.randomUUID(),
+            description: description,
+            urgencyLevel: urgencyLevel,
+            dateToComplete: dateToComplete,
+            completed: false
+        };
+        this.#items.push(newItem);
+        return newItem;
+    }
+
+    findItem(itemId) {
+        return this.#items.find(item => item.id === itemId);
+    }
+
+    finishItem(itemID) {
+        const itemToFinish = this.findItem(itemID);
+
+        if (itemToFinish) {
+            itemToFinish.completed = true;
+        }
+
+    }
+
+    deleteItem(itemId) {
+        this.#items = this.#items.filter(item => item.id !== itemId);
+    }
+
+    editItem(itemId, properties) {
+        const itemToEdit = this.findItem(itemId);
+
+        if (itemToEdit) {
+            Object.assign(itemToEdit, properties);
+        }
+    }
+
+    countProgress() {
+        return this.#items.reduce((accumulator, item) => {
+            if (item.completed) {
+                accumulator.completed++;
+            } else {
+                accumulator.inProgress++;
+            }
+            return accumulator;
+        }, {completed: 0, inProgress: 0});
+    }
+
+    calculateProgressInPercentage() {
+        const progress = this.countProgress();
+        if (this.#items.length === 0) {
+            return 0;
+        }
+        return Math.floor(progress.inProgress / this.#items.length) * 100;
+    }
+
+
 }
