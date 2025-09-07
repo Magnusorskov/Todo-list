@@ -1,6 +1,5 @@
 import { Checklist } from "./Checklist";
 import { Urgency } from "./urgency";
-import * as crypto from "node:crypto";
 
 class Todo {
     #title;
@@ -22,10 +21,6 @@ class Todo {
         this.#dueDate = dueDate;
         this.#urgency = urgency;
         this.#checkList = [];
-        this.#title = title;
-        this.#description = description;
-        this.#dueDate = dueDate;
-        this.#urgency = urgency;
         this.#id = crypto.randomUUID();
     }
 
@@ -75,5 +70,11 @@ class Todo {
 
     get id() {
         return this.#id;
+    }
+
+    finishCompleteCheckList(checklist) {
+        for (const item of checklist.items) {
+            checklist._finishItem(item);
+        }
     }
 }

@@ -38,7 +38,11 @@ class Checklist {
         return this.#items.find((item) => item.id === itemId);
     }
 
-    finishItem(itemID) {
+    _finishItem(item) {
+        item.completed = true;
+    }
+
+    finishItemById(itemID) {
         const itemToFinish = this.findItem(itemID);
 
         if (itemToFinish) {
