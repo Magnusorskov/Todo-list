@@ -1,11 +1,12 @@
-export {Checklist};
+export { Checklist };
 
 class Checklist {
-    #items = [];
+    #items;
     #category;
 
     constructor(category) {
         this.#category = category;
+        this.#items = [];
     }
 
     get items() {
@@ -26,14 +27,14 @@ class Checklist {
             description: description,
             urgencyLevel: urgencyLevel,
             dateToComplete: dateToComplete,
-            completed: false
+            completed: false,
         };
         this.#items.push(newItem);
         return newItem;
     }
 
     findItem(itemId) {
-        return this.#items.find(item => item.id === itemId);
+        return this.#items.find((item) => item.id === itemId);
     }
 
     finishItem(itemID) {
@@ -42,11 +43,10 @@ class Checklist {
         if (itemToFinish) {
             itemToFinish.completed = true;
         }
-
     }
 
     deleteItem(itemId) {
-        this.#items = this.#items.filter(item => item.id !== itemId);
+        this.#items = this.#items.filter((item) => item.id !== itemId);
     }
 
     editItem(itemId, properties) {
@@ -58,14 +58,17 @@ class Checklist {
     }
 
     countProgress() {
-        return this.#items.reduce((accumulator, item) => {
-            if (item.completed) {
-                accumulator.completed++;
-            } else {
-                accumulator.inProgress++;
-            }
-            return accumulator;
-        }, {completed: 0, inProgress: 0});
+        return this.#items.reduce(
+            (accumulator, item) => {
+                if (item.completed) {
+                    accumulator.completed++;
+                } else {
+                    accumulator.inProgress++;
+                }
+                return accumulator;
+            },
+            { completed: 0, inProgress: 0 }
+        );
     }
 
     calculateProgressInPercentage() {
@@ -75,6 +78,4 @@ class Checklist {
         }
         return Math.floor(progress.inProgress / this.#items.length) * 100;
     }
-
-
 }
