@@ -1,4 +1,5 @@
 export { Checklist };
+import { Urgency } from "./urgency";
 
 class Checklist {
     #items;
@@ -21,11 +22,11 @@ class Checklist {
         this.#category = value;
     }
 
-    addItem(description, urgencyLevel, dateToComplete) {
+    addItem(description, urgency = Urgency.MEDIUM, dateToComplete) {
         const newItem = {
             id: crypto.randomUUID(),
             description: description,
-            urgencyLevel: urgencyLevel,
+            urgencyLevel: urgency,
             dateToComplete: dateToComplete,
             completed: false,
         };
