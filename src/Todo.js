@@ -1,5 +1,5 @@
-import { Checklist } from "./Checklist";
-import { Urgency } from "./urgency";
+import Checklist from "./Checklist";
+import { Urgency } from "./Urgency";
 import { calculateProgressInPercentage } from "./calculationUtils";
 
 export default class Todo {
@@ -77,7 +77,9 @@ export default class Todo {
     }
 
     addChecklist(category) {
-        this.#checkLists.push(new Checklist(category));
+        const newChecklist = new Checklist(category);
+        this.#checkLists.push(newChecklist);
+        return newChecklist;
     }
 
     finishCompleteCheckList(checklist) {
