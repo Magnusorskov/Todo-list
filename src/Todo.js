@@ -1,26 +1,30 @@
 import { Checklist } from "./Checklist";
 import { Urgency } from "./urgency";
+import { calculateProgressInPercentage } from "./calculationUtils";
 
-class Todo {
+export default class Todo {
     #title;
     #description;
     #dueDate;
     #urgency;
     #progress;
-    #checkList;
+    #checkLists;
+    #note;
     #id;
 
     constructor(
         title,
         description = null,
         dueDate = null,
-        urgency = Urgency.MEDIUM
+        urgency = Urgency.MEDIUM,
+        note = null
     ) {
         this.#title = title;
         this.#description = description;
         this.#dueDate = dueDate;
         this.#urgency = urgency;
-        this.#checkList = [];
+        this.#checkLists = [];
+        this.#note = note;
         this.#id = crypto.randomUUID();
     }
 
@@ -32,8 +36,8 @@ class Todo {
         this.#progress = value;
     }
 
-    get checkList() {
-        return this.#checkList;
+    get checkLists() {
+        return this.#checkLists;
     }
 
     get title() {
@@ -72,9 +76,29 @@ class Todo {
         return this.#id;
     }
 
+    addChecklist(category) {
+        this.#checkLists.push(new Checklist(category));
+    }
+
     finishCompleteCheckList(checklist) {
         for (const item of checklist.items) {
             checklist._finishItem(item);
         }
+    }
+
+    countProgress() {
+        return this.checkLists.reduce(
+            (accumulator, checklist) => {
+                const checkListProgress = checklist.countProgress();
+                accumulator.completed += checkListProgress.completed;
+                accumulator.inProgress += checkListProgress.inProgress;
+                return accumulator;
+            },
+            { completed: 0, inProgress: 0 }
+        );
+    }
+
+    calculateProgressInPercentage() {
+        return calculateProgressInPercentage(this.countProgress());
     }
 }

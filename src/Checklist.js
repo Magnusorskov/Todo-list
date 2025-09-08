@@ -1,7 +1,7 @@
-export { Checklist };
 import { Urgency } from "./urgency";
+import { calculateProgressInPercentage } from "./calculationUtils";
 
-class Checklist {
+export default class Checklist {
     #items;
     #category;
 
@@ -46,7 +46,7 @@ class Checklist {
         const itemToFinish = this.findItem(itemID);
 
         if (itemToFinish) {
-            itemToFinish.completed = true;
+            this._finishItem(itemToFinish);
         }
     }
 
@@ -77,10 +77,6 @@ class Checklist {
     }
 
     calculateProgressInPercentage() {
-        const progress = this.countProgress();
-        if (this.#items.length === 0) {
-            return 0;
-        }
-        return Math.floor(progress.inProgress / this.#items.length) * 100;
+        return calculateProgressInPercentage(this.countProgress());
     }
 }
