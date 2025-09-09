@@ -1,6 +1,6 @@
 import Todo from "./Todo";
 import { Urgency } from "./Urgency";
-import { calculateProgressInPercentage } from "./calculationUtils";
+import { calculateProgressInPercentage } from "../utils/calculationUtils";
 
 export default class Project {
     #name;
@@ -56,5 +56,4 @@ export default class Project {
     calculateProgressInPercentage() {
         return calculateProgressInPercentage(this.countProgress());
     }
-
 }

@@ -1,5 +1,5 @@
 import { Urgency } from "./Urgency";
-import { calculateProgressInPercentage } from "./calculationUtils";
+import { calculateProgressInPercentage } from "../utils/calculationUtils";
 
 export default class Checklist {
     #items;

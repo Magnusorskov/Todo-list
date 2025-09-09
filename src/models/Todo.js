@@ -1,6 +1,6 @@
 import Checklist from "./Checklist";
 import { Urgency } from "./Urgency";
-import { calculateProgressInPercentage } from "./calculationUtils";
+import { calculateProgressInPercentage } from "../utils/calculationUtils";
 
 export default class Todo {
     #title;
