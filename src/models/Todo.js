@@ -1,13 +1,13 @@
 import Checklist from "./Checklist";
 import { Urgency } from "./Urgency";
 import { calculateProgressInPercentage } from "../utils/calculationUtils";
+import * as crypto from "node:crypto";
 
 export default class Todo {
     #title;
     #description;
     #dueDate;
     #urgency;
-    #progress;
     #checkLists;
     #note;
     #id;
@@ -17,23 +17,24 @@ export default class Todo {
         description = null,
         dueDate = null,
         urgency = Urgency.MEDIUM,
-        note = null
+        note = null,
+        id = crypto.randomUUID(),
+        checkLists = []
     ) {
         this.#title = title;
         this.#description = description;
         this.#dueDate = dueDate;
         this.#urgency = urgency;
-        this.#checkLists = [];
         this.#note = note;
-        this.#id = crypto.randomUUID();
+        this.checkLists = checkLists;
     }
 
     get progress() {
         return this.#progress;
     }
 
-    set progress(value) {
-        this.#progress = value;
+    set progress(newProgress) {
+        this.#progress = newProgress;
     }
 
     get checkLists() {
@@ -44,36 +45,44 @@ export default class Todo {
         return this.#title;
     }
 
-    set title(value) {
-        this.#title = value;
+    set title(newTitle) {
+        this.#title = newTitle;
     }
 
     get description() {
         return this.#description;
     }
 
-    set description(value) {
-        this.#description = value;
+    set description(newDescription) {
+        this.#description = newDescription;
     }
 
     get dueDate() {
         return this.#dueDate;
     }
 
-    set dueDate(value) {
-        this.#dueDate = value;
+    set dueDate(newDueDate) {
+        this.#dueDate = newDueDate;
     }
 
     get urgency() {
         return this.#urgency;
     }
 
-    set urgency(value) {
-        this.#urgency = value;
+    set urgency(newUrgency) {
+        this.#urgency = newUrgency;
     }
 
     get id() {
         return this.#id;
+    }
+
+    get note() {
+        return this.#note;
+    }
+
+    set note(newNote) {
+        this.#note = newNote;
     }
 
     addChecklist(category) {

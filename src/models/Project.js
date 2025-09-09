@@ -6,9 +6,9 @@ export default class Project {
     #name;
     #todoLists;
 
-    constructor(name) {
+    constructor(name, todoLists = []) {
         this.#name = name;
-        this.#todoLists = [];
+        this.#todoLists = todoLists;
     }
 
     get name() {
