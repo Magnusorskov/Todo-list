@@ -1,0 +1,49 @@
+:root {
+    --border-color: hsl(171, 25%, 60%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-content {
+    display: flex;
+}
+
+
+aside {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+    /*border-right: 2px solid var(--border-color);*/
+    background-color: hsl(171, 25%, 80%);
+    text-align: center;
+}
+
+
+nav, footer {
+    padding: 0.5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    background-color: hsl(180, 14%, 97%);
+}
+
+button:hover {
+    cursor: pointer;
+}
+footer button {
+    border: none;
+    background-color: inherit;
+}
+
+footer {
+    border-top: solid 2px var(--border-color);
+}
