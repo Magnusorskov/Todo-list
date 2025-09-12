@@ -45,20 +45,32 @@ nav {
 }
 
 .projects-container circle-progress::part(base) {
-    width: 6rem;
-    height: 6rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 900px;
+    border: 1px solid hsl(171, 25%, 65%);
+    padding: 2px;
 }
 
-.projects-container ::part(value) {
-    stroke-width: 95px;
-    stroke: hsl(160, 63%, 55%);
-}
-
-.projects-container ::part(circle) {
-    /*stroke-width: 95px;*/
+.projects-container circle-progress::part(circle) {
+    stroke-width: 50px;
     stroke: hsl(171, 25%, 80%);
 }
+
+.projects-container circle-progress::part(value) {
+    stroke-width: 50px;
+
+}
+
+.projects-container li {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    text-wrap: nowrap;
+ }
+
+
+
 
 
 
@@ -136,8 +148,45 @@ footer {
     display: flex;
     gap: 2rem;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
+}
+
+.date-to-complete {
+
+}
+
+.urgency {
+    color: white;
+    width: fit-content;
+    text-align: center  ;
+    border-radius: 8px;
+    padding: 0.3rem 1rem;
+}
+.urgency-high {
+    background-color: indianred;
+}
+
+.urgency-medium {
+    background-color: yellowgreen;
+}
+
+.urgency-low {
+    background-color: forestgreen;
+}
+
+.notes {
+    display: flex;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.3rem;
+}
+
+.notes-button {
+    text-align: start;
+    width: fit-content;
+    font-size: 1.2rem;
+    font-weight: normal;
 }
 
 .checklist+.checklist {
