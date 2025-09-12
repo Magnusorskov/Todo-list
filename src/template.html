@@ -19,9 +19,11 @@
                     <circle-progress value="25"
                                      max="100"
                                      text-format="none"></circle-progress>
-                </li><li>
+                </li>
+                <li>
                     <button class="project">Unicorn Project</button>
-                </li><li>
+                </li>
+                <li>
                     <button class="project">Unicorn Project</button>
                 </li>
             </ul>
@@ -46,8 +48,9 @@
                 <p>Description Description Description Description Description Description Description Description
                     Description DescriptionDescriptionDescriptionDescription Description Description </p>
                 <div class="date-to-complete">
-                    <p>20-10-2025</p>
-                    <button></button>
+                    <input type="date"
+                           value="2025-10-20"
+                           class="date-picker">
                 </div>
                 <div class="urgency urgency-high">High</div>
                 <button class="notes-button">Notes</button>
@@ -102,8 +105,97 @@
         </div>
     </div>
     <footer>
-        <button>+ New Todo</button>
+        <button class="add-todo">+ New Todo</button>
     </footer>
+    <dialog class="todo-dialog">
+        <form class="todo-dialog__form">
+            <div class="todo-dialog__input-container">
+                <label for="title">Todo Title</label>
+                <input type="text"
+                       id="title"
+                       name="todo-title"
+                       required
+                       class="todo-dialog__input">
+            </div>
+            <div class="todo-dialog__input-container">
+                <label for="description">Description</label>
+                <textarea id="description"
+                          name="todo-description"
+                          class="todo-dialog__textarea"
+                          rows="4"></textarea>
+            </div>
+            <div class="todo-dialog__input-container">
+                <label for="note">Note</label>
+                <textarea id="note"
+                          name="todo-note"
+                          class="todo-dialog__textarea"
+                          rows="2"></textarea>
+            </div>
+            <div class="todo-dialog__input-container">
+                <label for="dueDate">Due date</label>
+                <input type="date"
+                       name="todo-dueDate"
+                       id="dueDate"
+                       class="todo-dialog__input">
+            </div>
+            <fieldset>
+                <legend>Choose the urgency of the todo</legend>
+                <div class="todo-dialog__input-container">
+                    <label for="low">Low</label>
+                    <input type="radio"
+                           name="todo-urgency"
+                           id="low"
+                           value="low"
+                           class="todo-dialog__input">
+                </div>
+                <div class="todo-dialog__input-container">
+                    <label for="medium">Medium</label>
+                    <input type="radio"
+                           name="todo-urgency"
+                           id="medium"
+                           value="medium"
+                           class="todo-dialog__input">
+                </div>
+                <div class="todo-dialog__input-container">
+                    <label for="high">High</label>
+                    <input type="radio"
+                           name="todo-urgency"
+                           id="high"
+                           value="high"
+                           class="todo-dialog__input">
+                </div>
+            </fieldset>
+            <div class="todo-dialog__actions">
+                <button type="button"
+                        class="todo-dialog__button todo-dialog__button--cancel">Cancel
+                </button>
+                <button type="submit"
+                        class="todo-dialog__button todo-dialog__button--primary">Save
+                </button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="project-dialog">
+        <form class="project-dialog__form">
+            <div class="project-dialog__input-container">
+                <label for="project-name">Project Name</label>
+                <input type="text"
+                       id="project-name"
+                       name="project-name"
+                       required
+                       class="project-dialog__input">
+            </div>
+            <div class="project-dialog__actions">
+                <button type="button"
+                        class="project-dialog__button project-dialog__button--cancel">Cancel
+                </button>
+                <button type="submit"
+                        class="project-dialog__button project-dialog__button--primary">Save
+                </button>
+            </div>
+        </form>
+    </dialog>
 </main>
 
 </body>
