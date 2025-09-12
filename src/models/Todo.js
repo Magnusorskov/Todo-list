@@ -29,14 +29,6 @@ export default class Todo {
         this.checkLists = checkLists;
     }
 
-    get progress() {
-        return this.#progress;
-    }
-
-    set progress(newProgress) {
-        this.#progress = newProgress;
-    }
-
     get checkLists() {
         return this.#checkLists;
     }

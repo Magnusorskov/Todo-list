@@ -9,26 +9,99 @@
     <title>Document</title>
 </head>
 <body>
-<div class="main-content">
-    <aside>
-        <nav>
-            <h1>Projects</h1>
-            <div class="projects">
+<aside>
+    <nav>
+        <h1>Projects</h1>
+        <div class="projects-container">
+            <ul>
+                <li>
+                    <button class="project">Unicorn Project</button>
+                    <circle-progress value="50"
+                                     max="100"
+                                     text-format="none"></circle-progress>
+                </li><li>
+                    <button class="project">Unicorn Project</button>
+                </li><li>
+                    <button class="project">Unicorn Project</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <footer>
+        <button>+ New Project</button>
+    </footer>
+</aside>
+<main>
+    <div class="main-content">
+        <h1>Unicorn Project</h1>
+        <div class="todo-container">
+
+            <div class="todo-card">
+                <div class="checklist-title-container">
+                    <h2>Todo title</h2>
+                    <circle-progress value="50"
+                                     max="100"
+                                     text-format="percent"></circle-progress>
+                </div>
+                <p>Description Description Description Description Description Description Description Description
+                    Description DescriptionDescriptionDescriptionDescription Description Description </p>
+                <div class="time">12-01-2025</div>
+                <div class="urgency">high</div>
+                <div class="notes">notes</div>
+                <div class="checklists-container">
+                    <div class="checklist">
+
+
+                        <h3> Cleaning Toilet </h3>
+
+
+                        <div class="checkbox-container"><input type="checkbox"
+                                                               name="clean-toilet"
+                                                               id="clean-the-toilet">
+                            <label for="clean-the-toilet">Clean the toilet</label></div>
+                        <div class="checkbox-container"><input type="checkbox"
+                                                               name="clean-toilet"
+                                                               id="clean-the-sink">
+                            <label for="clean-the-sink">Clean the sink</label></div>
+                        <div class="checkbox-container"><input type="checkbox"
+                                                               name="clean-toilet"
+                                                               id="clean-the-shower">
+                            <label for="clean-the-shower">Clean the shower</label></div>
+                        <div class="checkbox-container"><input type="checkbox"
+                                                               name="clean-toilet"
+                                                               id="clean-the-floor">
+                            <label for="clean-the-floor">Clean the floor</label></div>
+                    </div>
+                    <div class="checklist">
+                        <h3>
+                            Groceries
+                        </h3>
+                        <div class="checkbox-container"><input type="checkbox"
+                                                               name="groceries"
+                                                               id="buy-milk">
+                            <label for="buy-milk">Buy milk</label></div>
+                        <div class="checkbox-container"><input type="checkbox"
+                                                               name="groceries"
+                                                               id="buy-eggs">
+                            <label for="buy-eggs">Buy eggs</label></div>
+                        <div class="checkbox-container"><input type="checkbox"
+                                                               name="groceries"
+                                                               id="buy-bread">
+                            <label for="buy-bread">Buy bread</label></div>
+                        <div class="checkbox-container"><input type="checkbox"
+                                                               name="groceries"
+                                                               id="buy-cheese">
+                            <label for="buy-cheese">Buy cheese</label></div>
+                    </div>
+                </div>
             </div>
-        </nav>
-        <footer>
-            <button>+ New Project</button>
-        </footer>
-    </aside>
-    <main>
-        <div class="project-container">
 
         </div>
-        <footer>
-            <button>+ New Todo</button>
-        </footer>
-    </main>
-</div>
+    </div>
+    <footer>
+        <button>+ New Todo</button>
+    </footer>
+</main>
 
 </body>
 </html>

@@ -8,24 +8,65 @@
     box-sizing: border-box;
 }
 
-.main-content {
+body {
     display: flex;
+    /*align-items: baseline;*/
 }
 
+.main-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.main-content h1 {
+    align-self: center;
+
+}
 
 aside {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     justify-content: space-between;
-    /*border-right: 2px solid var(--border-color);*/
     background-color: hsl(171, 25%, 80%);
-    text-align: center;
+    border-right: solid 2px var(--border-color);
+}
+
+nav {
+    padding: 0.5rem;
+}
+
+.projects-container ul{
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.projects-container circle-progress::part(base) {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 900px;
+}
+
+.projects-container ::part(value) {
+    stroke-width: 95px;
+    stroke: hsl(160, 63%, 55%);
+}
+
+.projects-container ::part(circle) {
+    /*stroke-width: 95px;*/
+    stroke: hsl(171, 25%, 80%);
 }
 
 
-nav, footer {
+
+
+footer {
     padding: 0.5rem;
+    position: sticky;
+    bottom: 0;
 }
 
 main {
@@ -33,17 +74,91 @@ main {
     flex-direction: column;
     flex-grow: 1;
     justify-content: space-between;
+
     background-color: hsl(180, 14%, 97%);
 }
 
 button:hover {
     cursor: pointer;
 }
-footer button {
+
+button {
     border: none;
     background-color: inherit;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 footer {
     border-top: solid 2px var(--border-color);
+    display: flex;
+    justify-content: center;
+}
+
+.todo-container {
+    display: grid;
+    /* Creates a responsive grid that fits as many columns as possible with a minimum width. */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    /*overflow: auto;*/
+
+}
+
+.todo-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.checklist {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.checked {
+    text-decoration: line-through;
+    opacity: 0.5;
+
+}
+
+.checklist-title-container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.checklist+.checklist {
+    margin-top: 1rem;
+}
+.checklist h3 {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 0.5rem;
+}
+
+.checklist-title-container circle-progress::part(base) {
+    width: 5rem;
+    height: 5rem;
+}
+
+aside footer {
+    background-color: hsl(171, 25%, 80%);
+
+}
+
+main footer {
+    background-color: hsl(180, 14%, 97%);
+
 }
