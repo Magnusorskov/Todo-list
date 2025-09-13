@@ -219,4 +219,65 @@ main footer {
 
 }
 
+.todo-dialog {
+    border-radius: 10px;
+    border: 4px solid var(--border-color);
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 2rem;
+    padding: 2rem;
+}
 
+.todo-dialog__input-container > *, .todo-dialog__actions button, .project-dialog__input-container > *, .project-dialog__button{
+    font-size: 2rem;
+}
+
+.todo-dialog__input-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.project-dialog__input-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    text-wrap: nowrap;
+}
+.todo-dialog__input, .todo-dialog__textarea {
+    border-radius: 10px;
+}
+
+label {
+    width: 10rem;
+}
+
+.todo-dialog__actions, .project-dialog__actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+form button {
+    padding: 0.3rem;
+    border-radius: 10px;
+}
+
+#low, #medium, #high {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+fieldset {
+    border: none;
+}
+
+textarea {
+    width: auto;
+}
+
+form input, form textarea {
+    padding: 0.5rem;
+}

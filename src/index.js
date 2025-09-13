@@ -13,16 +13,16 @@ closeDialog.addEventListener("click", () => {
     addTodoDialog.close();
 });
 
-const addProject = document.querySelector(".add-project");
+const addProject = document.querySelector(".add-project-button");
 const closeProjectDialog = document.querySelector(
-    ".Project-dialog__button--cancel"
+    ".project-dialog__button--cancel"
 );
-const addProjectDialog = document.querySelector(".Project-dialog");
+const addProjectDialog = document.querySelector(".project-dialog");
 
 addProject.addEventListener("click", () => {
     addProjectDialog.showModal();
 });
 
-closeDialog.addEventListener("click", () => {
+closeProjectDialog.addEventListener("click", () => {
     addProjectDialog.close();
 });
