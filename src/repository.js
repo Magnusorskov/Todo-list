@@ -3,20 +3,24 @@ import Todo from "./models/Todo";
 import Project from "./models/Project";
 
 export default class Repository {
-    project_key = "todo-app-projects";
-    projects;
-    storageService;
+    #project_key = "todo-app-projects";
+    #projects;
+    #storageService;
 
     constructor(storageService) {
-        this.storageService = storageService;
+        this.#storageService = storageService;
         const plainProjects =
-            this.storageService.loadData(this.project_key) || [];
-        this.projects = this.rehydrateProjects(plainProjects);
+            this.#storageService.loadData(this.#project_key) || [];
+        this.#projects = this.rehydrateProjects(plainProjects);
     }
 
     addProject(project) {
-        this.projects.push(project);
-        this.storageService.saveData(this.project_key, this.projects);
+        this.#projects.push(project);
+        this.#storageService.saveData(this.#project_key, this.#projects);
+    }
+
+    get projects() {
+        return this.#projects;
     }
 
     rehydrateProjects(plainProjects) {
