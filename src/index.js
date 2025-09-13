@@ -3,7 +3,7 @@ import "js-circle-progress";
 import Repository from "./repository";
 import LocalStorageService from "./services/LocalStorageService";
 import Project from "./models/Project";
-import projectForm from "./ui/ProjectForm";
+import { projectFormEventListener } from "./ui/ProjectFormEventListener";
 
 const addTodo = document.querySelector(".add-todo");
 const closeDialog = document.querySelector(".todo-dialog__button--cancel");
@@ -35,5 +35,5 @@ closeProjectDialog.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const projectRepository = new Repository(LocalStorageService);
 
-    projectForm(projectRepository);
+    projectFormEventListener(projectRepository);
 });

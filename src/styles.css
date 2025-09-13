@@ -39,7 +39,7 @@ nav {
     padding: 0.5rem;
 }
 
-.projects-container ul {
+.projects-container  {
     margin-top: 3rem;
     display: flex;
     flex-direction: column;
