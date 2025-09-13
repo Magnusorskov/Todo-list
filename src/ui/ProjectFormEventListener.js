@@ -38,7 +38,8 @@ export function createProjectElement(project) {
     progressCircle.setAttribute("max", "100");
     progressCircle.setAttribute("text-format", "none");
 
-    newProjectLi.appendChild(projectName);
     newProjectLi.appendChild(progressCircle);
+    newProjectLi.appendChild(projectName);
+
     return newProjectLi;
 }

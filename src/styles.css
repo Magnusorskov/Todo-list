@@ -30,9 +30,11 @@ aside {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    text-align: center;
     justify-content: space-between;
     background-color: hsl(171, 25%, 80%);
     border-right: solid 2px var(--border-color);
+    width: 400px;
 }
 
 nav {
@@ -44,6 +46,11 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    padding: 1rem;
+    text-wrap: wrap;
+    overflow-wrap: break-word;
+
+
 }
 
 .projects-container circle-progress::part(base) {
@@ -67,10 +74,17 @@ nav {
 .projects-container li {
     display: flex;
     gap: 1rem;
-    align-items: center;
-    text-wrap: nowrap;
 }
 
+li button {
+    width: 300px;
+    text-align: start;
+}
+
+circle-progress {
+    display: flex;
+    align-items: center;
+}
 
 main {
     display: flex;
