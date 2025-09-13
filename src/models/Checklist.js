@@ -79,4 +79,11 @@ export default class Checklist {
     calculateProgressInPercentage() {
         return calculateProgressInPercentage(this.countProgress());
     }
+
+    // toJSON() {
+    //     return {
+    //         #items: this.#items,
+    //         #category: this.#category,
+    //     };
+    // }
 }

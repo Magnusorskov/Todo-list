@@ -1,7 +1,6 @@
 import Checklist from "./Checklist";
 import { Urgency } from "./Urgency";
 import { calculateProgressInPercentage } from "../utils/calculationUtils";
-import * as crypto from "node:crypto";
 
 export default class Todo {
     #title;
@@ -103,5 +102,17 @@ export default class Todo {
 
     calculateProgressInPercentage() {
         return calculateProgressInPercentage(this.countProgress());
+    }
+
+    toJSON() {
+        return {
+            title: this.#title,
+            description: this.#description,
+            dueDate: this.#dueDate,
+            urgency: this.#urgency,
+            checkLists: this.#checkLists,
+            note: this.note,
+            id: this.id,
+        };
     }
 }

@@ -56,4 +56,11 @@ export default class Project {
     calculateProgressInPercentage() {
         return calculateProgressInPercentage(this.countProgress());
     }
+
+    toJSON() {
+        return {
+            name: this.#name,
+            todoLists: this.#todoLists
+        };
+    }
 }

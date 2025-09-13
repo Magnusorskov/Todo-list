@@ -1,5 +1,3 @@
-export default new LocalStorageService();
-
 class LocalStorageService {
     saveData(key, data) {
         localStorage.setItem(key, JSON.stringify(data));
@@ -9,4 +7,9 @@ class LocalStorageService {
         const data = localStorage.getItem(key);
         return data ? JSON.parse(data) : null;
     }
+
+    clearData() {
+        localStorage.clear();
+    }
 }
+export default new LocalStorageService();
