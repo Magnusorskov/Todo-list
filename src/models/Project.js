@@ -5,10 +5,12 @@ import { calculateProgressInPercentage } from "../utils/calculationUtils";
 export default class Project {
     #name;
     #todoLists;
+    #id;
 
     constructor(name, todoLists = []) {
         this.#name = name;
         this.#todoLists = todoLists;
+        this.#id = crypto.randomUUID();
     }
 
     get name() {
@@ -60,7 +62,8 @@ export default class Project {
     toJSON() {
         return {
             name: this.#name,
-            todoLists: this.#todoLists
+            todoLists: this.#todoLists,
+            id: this.#id,
         };
     }
 }
