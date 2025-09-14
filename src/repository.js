@@ -19,6 +19,13 @@ export default class Repository {
         this.storageService.saveData(this.project_key, this.projects);
     }
 
+    deleteProject(projectToDelete) {
+        this.projects = this.projects.filter(
+            (project) => project !== projectToDelete
+        );
+        this.storageService.saveData(this.project_key, this.projects);
+    }
+
     get projects() {
         return this.projects;
     }
