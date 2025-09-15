@@ -30,6 +30,14 @@ export default class Repository {
         this.storageService.saveData(this.project_key, this.projects);
     }
 
+    save() {
+        this.storageService.saveData(this.project_key, this.projects);
+    }
+
+    save() {
+        this.storageService.saveData(this.project_key, this.projects);
+    }
+
     get projects() {
         return this.projects;
     }
@@ -40,7 +48,7 @@ export default class Repository {
         }
         return plainProjects.map((p) => {
             const rehydratedTodos = this.rehydrateTodos(p.todoLists);
-            return new Project(p.name, rehydratedTodos);
+            return new Project(p.name, rehydratedTodos, p.id);
         });
     }
 

@@ -1,6 +1,6 @@
 import Todo from "../models/Todo";
 
-function initTodoDialog(onSubmit, project) {
+function initTodoDialog(onSubmit) {
     const todoDialog = document.querySelector(".todo-dialog");
     const todoForm = document.querySelector(".todo-dialog__form");
     const cancelTodoButton = document.querySelector(

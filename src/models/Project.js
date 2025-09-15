@@ -7,10 +7,10 @@ export default class Project {
     #todoLists;
     #id;
 
-    constructor(name, todoLists = []) {
+    constructor(name, todoLists = [], id = crypto.randomUUID()) {
         this.#name = name;
         this.#todoLists = todoLists;
-        this.#id = crypto.randomUUID();
+        this.#id = id;
     }
 
     get name() {
@@ -19,6 +19,10 @@ export default class Project {
 
     set name(value) {
         this.#name = value;
+    }
+
+    get id() {
+        return this.#id;
     }
 
     get todoLists() {

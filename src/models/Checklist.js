@@ -4,10 +4,16 @@ import { calculateProgressInPercentage } from "../utils/calculationUtils";
 export default class Checklist {
     #items;
     #category;
+    #id;
 
     constructor(category) {
         this.#category = category;
         this.#items = [];
+        this.#id = crypto.randomUUID();
+    }
+
+    get id() {
+        return this.#id;
     }
 
     get items() {

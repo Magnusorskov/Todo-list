@@ -25,7 +25,8 @@ export default class Todo {
         this.#dueDate = dueDate;
         this.#urgency = urgency;
         this.#note = note;
-        this.checkLists = checkLists;
+        this.#id = id;
+        this.#checkLists = checkLists;
     }
 
     get checkLists() {
